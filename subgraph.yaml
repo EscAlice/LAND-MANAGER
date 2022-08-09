@@ -1,19 +1,19 @@
-specVersion: 0.0.2
-description: Decentraland's Watchtower
-repository: https://github.com/nicosantangelo/watchtower
+specVersion: 0.0.4
+description: A graph detaling the ownership and permissions of Land
+repository: https://github.com/EscAlice/LAND-MANAGER
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: LANDRegistry
-    network: mainnet
+    network: ropsten
     source:
-      address: '0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d'
+      address: '0xbb265dcc3781f241b586bbbbafe48f0bc140c966'
       abi: LANDRegistry
       startBlock: 4944642
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Parcel
@@ -41,14 +41,14 @@ dataSources:
 
   - kind: ethereum/contract
     name: EstateRegistry
-    network: mainnet
+    network: ropsten
     source:
-      address: '0x959e104e1a4db6317fa58f8295f586e1a978c297'
+      address: '0xcab66b458910ae5b60a35f737d8551cd2dcd0030'
       abi: EstateRegistry
       startBlock: 6236547
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Estate

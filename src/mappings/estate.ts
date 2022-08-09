@@ -51,8 +51,13 @@ export function handleAddLand(event: AddLand): void {
   let estateId = event.params._estateId.toString()
   let parcelId = event.params._landId.toHex()
   let estate = Estate.load(estateId)
-
+  if (!estate) {
+    return
+  }
   let parcels = estate.parcels
+  if (!parcels) {
+    return
+  }
   parcels.push(parcelId)
 
   estate.parcels = parcels
@@ -90,8 +95,13 @@ export function handleRemoveLand(event: RemoveLand): void {
   let estateId = event.params._estateId.toString()
   let parcelId = event.params._landId.toHex()
   let estate = Estate.load(estateId)
-
+  if (!estate) {
+    return
+  }
   let parcels = estate.parcels
+  if (!parcels) {
+    return
+  }
   let index = parcels.indexOf(parcelId)
   parcels.splice(index, 1)
 

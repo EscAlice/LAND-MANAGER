@@ -66,3 +66,6 @@ types
 *DS_Store
 /src/utils/addresses-ropsten.ts
 /subgraph-ropsten.yaml
+
+# .idea
+.idea
